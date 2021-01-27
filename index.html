@@ -85,21 +85,13 @@
 
 
   
-  
-  
-  
-  
-  
-
-
-   
  <!-- <div id = "teste"></div> -->
   <div id="chao"></div>
 
 </div>
 <script>
 	var number = 0;
-
+	
 	function input() {
 		var number = document.getElementById("discos").value;
 		var discos = [];
@@ -113,12 +105,16 @@ for (var i = 0;i+1<number;i++){
 
      
 }
-	
 
-var size = 300;
+
+var pass =1;
 
 function myMove(number) {
-  
+   
+   if (pass == 1){
+     var size = number*12;
+pass = 0;
+   }
   
 
   var elem1 = document.getElementById("a"+number);   
@@ -138,6 +134,8 @@ function myMove(number) {
 
   
   function frame1() {
+
+
   
       pos++; 
    
@@ -164,11 +162,13 @@ function myMove(number) {
   }
 }
 
-
+var pass1 =1;
 function myMove2(x) {
 
 
-  
+       
+     var size = (x*11);
+
   	
 
   var elem = document.getElementById("a"+(x-1));   
@@ -190,7 +190,7 @@ elem.style.backgroundColor = "blue";
    elem.style.left = 0;
 
    elem.style.width = size+"px";
-  size = size - 10; 
+ // size = size - 10; 
  
    var id = setInterval(frame, 8);
   
