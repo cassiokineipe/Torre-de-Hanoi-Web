@@ -3,7 +3,7 @@
 <style>
 #container {
   width: 600px;
-  height: 600px;
+  height: 400px;
   position: absolute;
   background: green;
 }
@@ -25,24 +25,58 @@
 
 
 
-#teste{
-  width: 50px;
-  height: 10px;
+.pino1{
+  position:absolute;
+  width: 1%;
+  height: 30%;
   border-radius:20px;
-  left: 0px;
-  
-  
- 
+  left: 13.3%;
+  margin-top:6%;
 
-  background-color: green;
+  display:None;
+
+
+  
+
+
+  background-color: black;
+}
+.pino2{
+  position:absolute;
+  width: 1%;
+  height: 30%;
+  border-radius:20px;
+  left: 46.6%;
+  margin-top:6%;
+
+display:None;
+  
+
+
+  background-color: black;
+}
+.pino3{
+  position:absolute;
+  width: 1%;
+  height: 30%;
+  border-radius:20px;
+  left: 79.9%;
+  margin-top:6%;
+
+display:None;
+  
+
+
+  background-color: black;
 }
 #chao{
   width: 100%;
-  height: 10px;
+  height: 3%;
   border-radius:20px;
   left: 0px;
-  margin-top:60%;
-
+  margin-top:10%;
+  
+  display: none;
   
 
 
@@ -61,6 +95,9 @@
  
 <br><br>
 <div id ="container">
+  <div class="pino1" id="p1"></div>
+  <div class="pino2" id="p2"></div>
+  <div class="pino3" id="p3"></div>
   <div class="disco" id ="a1"></div>
   <div class="disco" id ="a2"></div>
   <div class="disco" id ="a3"></div>
@@ -84,20 +121,39 @@
 
 
 
+
   
  <!-- <div id = "teste"></div> -->
   <div id="chao"></div>
 
 </div>
 <script>
+
+
+  var left = 0;
 	var number = 0;
-	
+	var time = 10;
 	function input() {
 		var number = document.getElementById("discos").value;
 		var discos = [];
 
 myMove(number);
-	
+	  
+    var p1 = document.getElementById("p1"); 
+      p1.style.display="block";
+      p1.style.left = number+"%";
+      p1.style.height = (number*3)+"%";
+
+    var p2 = document.getElementById("p2"); 
+      p2.style.left = (number+0.001)+"%";
+      p2.style.display="block";
+      p2.style.height = (number*3)+"%";
+
+
+    var p3 = document.getElementById("p3"); 
+      p3.style.display="block";
+      p3.style.left = number+"%";
+      p3.style.height = (number*3)+"%";
 
 for (var i = 0;i+1<number;i++){
  myMove2(number-i);
@@ -124,6 +180,7 @@ pass = 0;
 
   var pos = 1;
   elem1.style.display="block";
+  test1.style.display="block";
   
   //elem.style.top = Math.floor(Math.random() * 10);
  // elem.style.left = 0;
@@ -183,16 +240,21 @@ function myMove2(x) {
 
   var pos2 = 1;
   elem.style.display="block";
+
+
+
+  
 elem.style.backgroundColor = "blue";
 
   //elem.style.top = Math.floor(Math.random() * 10);
   elem.style.top = 0;
-   elem.style.left = 0;
+  left = left+5.5;
+   elem.style.left = left+"px";
 
    elem.style.width = size+"px";
  // size = size - 10; 
- 
-   var id = setInterval(frame, 8);
+   time= time+1;
+   var id = setInterval(frame, time);
   
   function frame() {
   
